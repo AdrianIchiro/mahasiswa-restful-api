@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/AdrianIchiro/mahasiswa-restful-api/issues"
   },
-  "homepage": "https://github.com/AdrianIchiro/mahasiswa-restful-api#readme"
+  "homepage": "https://github.com/AdrianIchiro/mahasiswa-restful-api#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.3",
+    "mysql": "^2.18.1"
+  }
 }
