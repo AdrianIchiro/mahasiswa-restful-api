@@ -1,4 +1,5 @@
-Requirement : 
-- Express
-- Mysql
-- Body-parser
+# Requirement
+
+```
+npm install express, mysql, body-parser
+```
