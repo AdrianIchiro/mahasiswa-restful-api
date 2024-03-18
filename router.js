@@ -1,7 +1,5 @@
 "use strict";
-const routerDefault = (app) => {
-  const controller = require("./controller");
-  app.route("/", controller.index);
+module.exports = function (app) {
+  const MyJson = require("./controller");
+  app.route("/").get(MyJson.index);
 };
-
-module.exports = routerDefault;

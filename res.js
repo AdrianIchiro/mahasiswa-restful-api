@@ -1,4 +1,4 @@
-"user strict";
+"use strict";
 
 exports.ok = (value, res) => {
   var data = {
@@ -6,6 +6,6 @@ exports.ok = (value, res) => {
     data: value,
   };
 
+  console.log("masuk");
   res.json(data);
-  res.end();
 };
