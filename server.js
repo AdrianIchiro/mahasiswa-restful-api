@@ -10,8 +10,6 @@ const routes = require("./router");
 const controller = require("./controller");
 routes(app);
 
-app.get("/ambil", controller.all);
-
 app.listen(3000, () => {
   console.log("Server is ready");
 });

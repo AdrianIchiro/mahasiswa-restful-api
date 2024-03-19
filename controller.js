@@ -8,5 +8,26 @@ exports.index = (req, res) => {
 };
 
 exports.all = (req, res) => {
-  response.all("anjaymabar", res);
+  conn.query("SELECT * FROM mahasiswa", (err, rows, filed) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.ok(rows, res);
+    }
+  });
+};
+
+exports.forId = (req, res) => {
+  const id = req.params.id;
+  conn.query(`SELECT * FROM mahasiswa WHERE id = ${id}`, (err, rows, filed) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.ok(rows, res);
+    }
+  });
+};
+
+exports.notFound = (req, res) => {
+  response.err("Not Found", res);
 };

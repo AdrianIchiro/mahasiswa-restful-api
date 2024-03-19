@@ -6,14 +6,13 @@ exports.ok = (value, res) => {
     data: value,
   };
 
-  console.log("masuk");
   res.json(data);
 };
 
-exports.all = (value, res) => {
+exports.err = (value, res) => {
   var data = {
-    status: 200,
-    data: value,
+    status: 404,
+    errors: value,
   };
 
   res.json(data);
