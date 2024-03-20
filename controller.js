@@ -31,3 +31,37 @@ exports.forId = (req, res) => {
 exports.notFound = (req, res) => {
   response.err("Not Found", res);
 };
+
+exports.postData = (req, res) => {
+  const nama = req.body.nama;
+  const nim = req.body.nim;
+  const prodi = req.body.prodi;
+
+  conn.query(
+    `INSERT INTO mahasiswa (nama, nim, prodi) VALUES ('${nama}', '${nim}', '${prodi}')`,
+    (err, rows, filed) => {
+      if (err) {
+        console.log(err);
+      } else {
+        response.ok("insert data complete", res);
+      }
+    }
+  );
+};
+
+exports.updateData = (req, res) => {
+  const id = req.body.id;
+  const nama = req.body.nama;
+  const nim = req.body.nim;
+  const prodi = req.body.prodi;
+  conn.query(
+    `UPDATE mahasiswa SET nama='${nama}', nim='${nim}', prodi='${prodi}' WHERE id = ${id}`,
+    (err, rows, filed) => {
+      if (err) {
+        console.log(err);
+      } else {
+        response.ok("update complete", res);
+      }
+    }
+  );
+};
