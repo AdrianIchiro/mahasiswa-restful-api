@@ -12,6 +12,7 @@ exports.all = (req, res) => {
     if (err) {
       console.log(err);
     } else {
+      console.log(rows);
       response.ok(rows, res);
     }
   });
@@ -61,6 +62,30 @@ exports.updateData = (req, res) => {
         console.log(err);
       } else {
         response.ok("update complete", res);
+      }
+    }
+  );
+};
+
+exports.deleteData = (req, res) => {
+  const id = req.body.id;
+  conn.query(`DELETE FROM mahasiswa WHERE id=${id}`, (err, rows, filed) => {
+    if (err) {
+      console.log(err);
+    } else {
+      response.ok("delete complete", res);
+    }
+  });
+};
+
+exports.allData = (req, res) => {
+  conn.query(
+    `SELECT mahasiswa.nama, mahasiswa.nim, mahasiswa.prodi, matakuliah.matakuliah, matakuliah.sks FROM krs JOIN mahasiswa JOIN matakuliah WHERE krs.id = mahasiswa.id AND krs.id_matkul = matakuliah.id_matkul;`,
+    (err, rows, filed) => {
+      if (err) {
+        console.log(err);
+      } else {
+        response.nested(rows, res);
       }
     }
   );
