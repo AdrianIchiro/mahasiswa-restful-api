@@ -5,4 +5,4 @@ const router = express.Router();
 
 router.post("/api/v1/register", auth.registrasi);
 
-exports.default = router;
+module.exports = router;
