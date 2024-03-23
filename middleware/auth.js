@@ -94,3 +94,7 @@ exports.login = function (req, res) {
     }
   });
 };
+
+exports.secret = (req, res) => {
+  response.ok("Anjay", res);
+};

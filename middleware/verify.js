@@ -1,10 +1,10 @@
 const jwt = require("jsonwebtoken");
 const config = require("../config/secret");
-function verify(role) {
+function verify_token(role) {
   return function (req, res, next) {
     var token = req.headers.authorization;
     if (token) {
-      const tokenArea = token.split(" ")[1];
+      var tokenArea = token.split(" ")[1];
       jwt.verify(tokenArea, config.secret, function (err, decoded) {
         if (err) {
           res.status(401).send({ auth: false, message: "token is death" });
@@ -12,6 +12,8 @@ function verify(role) {
           if (role == 1) {
             req.auth = decoded;
             next();
+          } else {
+            res.status(401).send({ auth: false, message: "token is death" });
           }
         }
       });
@@ -21,4 +23,4 @@ function verify(role) {
   };
 }
 
-module.exports = verify;
+module.exports = verify_token;
