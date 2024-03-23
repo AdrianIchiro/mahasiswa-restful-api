@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const config = require("../config/secret");
 function verify_token(role) {
   return function (req, res, next) {
+    var role = req.body.role;
     var token = req.headers.authorization;
     if (token) {
       var tokenArea = token.split(" ")[1];

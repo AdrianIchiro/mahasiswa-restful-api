@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.post("/api/v1/register", auth.registrasi);
 router.post("/api/v1/login", auth.login);
-router.post("/api/v1/secret", verify_token(1), auth.secret);
+router.post("/api/v1/secret", verify_token, auth.secret);
 
 module.exports = router;
