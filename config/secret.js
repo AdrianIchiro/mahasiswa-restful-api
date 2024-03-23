@@ -1,3 +1,3 @@
-exports.default = {
+module.exports = {
   secret: "rahasia",
 };
